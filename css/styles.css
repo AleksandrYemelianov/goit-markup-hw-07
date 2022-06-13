@@ -285,7 +285,7 @@ img {
   text-transform: uppercase;
 }
 
-.hero__button {
+.btn {
   display: inline-block;
   min-width: 200px;
   margin-left: auto;
@@ -309,8 +309,15 @@ img {
   
 }
 
-.hero__button:hover,
-.hero__button:focus {
+.btn--size {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;    
+}
+
+.btn:hover,
+.btn:focus {
   background-color: var(--secondary-btn-color);
 }
 
@@ -580,20 +587,17 @@ img {
 /* ПОРТФОЛИО */
 
 /* Кнопки */
-.project-btn {
+.project-btn__list {
+  display: flex;
+  justify-content: center;
   margin-bottom: 50px;
 }
 
-.button-list {
-  display: flex;
-  justify-content: center;
-}
-
-.button-list .button-item + .button-item {
+.project-btn__list .project-btn__item + .project-btn__item {
   margin-left: 8px;
 }
 
-.button {
+.project-btn {
   display: block;
   padding: 6px 22px;
   border-radius: 4px;
@@ -611,8 +615,8 @@ img {
   transition: color var(--transition), background-color var(--transition), box-shadow var(--transition);
 }
 
-.button:hover,
-.button:focus {
+.project-btn:hover,
+.project-btn:focus {
   background-color: var(--accent-color);
   color: var(--primary-white-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -620,7 +624,7 @@ img {
 }
 
 /* Проекты */
-.project-list {
+.project__list {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
@@ -629,30 +633,30 @@ img {
   margin-bottom: -30px;
 }
 
-.project-list > .project-item {
+.project__item {
   margin-left: 30px;
   margin-bottom: 30px;
   flex-basis: calc(100% / 3 - 30px);
   /* outline: 2px solid greenyellow; */
 }
 
-.project-link {
+.project__link {
   display: block;
   transition: box-shadow var(--transition);
 }
 
-.project-link:hover,
-.project-link:focus {
+.project__link:hover,
+.project__link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.project-wrapper {
+.project__wrapper {
   position: relative;
   overflow: hidden;
 }
 
-.project-descrip {
+.project__descrip {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -675,18 +679,18 @@ img {
   transition: transform var(--transition);
 }
 
-.project-item:hover .project-descrip,
-.project-item:focus .project-descrip {
+.project__item:hover .project__descrip,
+.project__item:focus .project__descrip {
   transform: translateY(0%);
 }
 
-.project-content {
+.project__content {
   padding: 20px 24px;
   border: 1px solid var(--border-project-color);
   border-top: 0;
 }
 
-.project-title {
+.project__title {
   margin-bottom: 4px;
 
   color: var(--primary-text-color);
@@ -695,7 +699,7 @@ img {
   line-height: 2;
   letter-spacing: 0.06em;
 }
-.project-text {
+.project__text {
   color: var(--secondary-text-color);
   font-size: 16px;
   line-height: 1.87;
@@ -739,7 +743,7 @@ img {
   transition: transform var(--transition);
 }
 
-.modal-btn {
+.btn-close {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -747,7 +751,6 @@ img {
   padding: 0;
   background: var(--primary-white-color);
   cursor: pointer;
-  /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 
@@ -757,21 +760,15 @@ img {
   transition: fill var(--transition);
 }
 
-.modal-icon {
+.modal__icon {
   width: 11px;
   height: 11px;
 }
 
-.modal-btn:hover,
-.modal-btn:focus {
+.btn-close:hover,
+.btn-close:focus {
   fill: var(--accent-color);
 }
-
-.form-contacts {
- display: flex;
- flex-direction: column;
-}
-
 
 /* Форма в модалке */
 
@@ -779,7 +776,7 @@ img {
   padding: 40px;
 }
 
-.form-title {
+.modal-form__title {
   display: block;
   text-align: center;
   margin-bottom: 12px;
@@ -791,7 +788,12 @@ img {
   color: var(--primary-text-color);
 }
 
-.form-label {
+.modal-form__contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form__label {
   margin-bottom: 4px;
 
   font-weight: 400;
@@ -801,12 +803,12 @@ img {
   color: var(--secondary-text-color);
 }
 
-.input-wrapper {
+.modal-form__item {
   position: relative;
   margin-bottom: 10px;
 }
 
-.form-input {
+.modal-form__input {
   width: 100%;
   height: 40px;
   padding-left: 42px;
@@ -818,22 +820,22 @@ img {
   transition: border-color var(--transition);
 }
 
-.form-input:hover,
-.form-input:focus,
-.form-input:not(:placeholder-shown),
-.form-textarea:hover,
-.form-textarea:focus,
-.form-textarea:not(:placeholder-shown) {
+.modal-form__input:hover,
+.modal-form__input:focus,
+.modal-form__input:not(:placeholder-shown),
+.modal-form__textarea:hover,
+.modal-form__textarea:focus,
+.modal-form__textarea:not(:placeholder-shown) {
   border-color: var(--accent-color);
 }
 
-.form-input:hover + .form-icon,
-.form-input:focus + .form-icon,
-.form-input:not(:placeholder-shown) + .form-icon{
+.modal-form__input:hover + .modal-form__icon,
+.modal-form__input:focus + .modal-form__icon,
+.modal-form__input:not(:placeholder-shown) + .modal-form__icon{
   fill: var(--accent-color);
 }
 
-.form-icon {
+.modal-form__icon {
   position: absolute;
   top: 50%;
   left: 15px;
@@ -846,7 +848,7 @@ img {
   transition: fill var(--transition);
 }
   
-.form-textarea {
+.modal-form__textarea {
   width: 100%;
   height: 120px;
   padding: 12px 16px;
@@ -861,7 +863,7 @@ img {
   transition: border-color var(--transition)
 }
 
-.form-textarea::placeholder {
+.modal-form__textarea::placeholder {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
@@ -871,7 +873,7 @@ img {
   
 }
 
-.form-check {
+.checkbox {
   position: relative;
 
   margin-bottom: 30px;
@@ -880,7 +882,7 @@ img {
   justify-content: space-evenly;
 }
 
-.checkbox {
+.checkbox__input {
   position: relative;
   top: 0;
   white-space: nowrap;
@@ -894,20 +896,7 @@ img {
   margin: -1px;   
 }
 
-.form-contract {
-  display: block;
-  text-align: center;
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
-
-  padding-left: 18px;
-  
-  color: var(--secondary-text-color);
-}
-
-.form-icon-check {
+.checkbox__wrapper {
   position: absolute;
   top: 50%;
   left: 14px;
@@ -924,37 +913,50 @@ img {
   transition: background-color var(--transition), border-color var(--transition);
 }
 
-.checkbox:checked + .form-icon-check {
+.checkbox__input:checked + .checkbox__wrapper {
   background-color: var(--accent-color);
   border-color: transparent;
 }
 
-.icon-check {
+.checkbox__enable {
   width: 16px;
   height: 15px;
   fill: var(--primary-white-color);
 }
 
-.form-link {
+.modal-form__accept {
+  display: block;
+  text-align: center;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+
+  padding-left: 18px;
+
+  color: var(--secondary-text-color);
+}
+
+.modal-form__link {
   color: var(--accent-color);
 }
 /* Рассылка ФУТЕР */
 
-.sub-form {
+.subs-form {
   display: flex;
   align-items: flex-end;
   width: calc(100% / 2);
   margin-left: auto;
 }
 
-.sub-container {
+.subs-form__wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-right: 12px;
 }
 
-.sub-send {
+.subs-form__label {
   margin-bottom: 20px;
   
   color: var(--primary-white-color);
@@ -965,16 +967,17 @@ img {
   text-transform: uppercase;
 }
 
-.sub-input {
+.subs-form__input {
   padding: 15px;
-
+  caret-color: var(--telemail-footer-color);
+  
   border: 1px solid var(--form-footer-color);
   border-radius: 4px;
   outline: transparent;
   background-color: transparent;
 }
 
-.sub-input::placeholder {
+.susubs-form__input::placeholder {
   font-style: normal;
   font-size: 16px;
   line-height: 1.25;
@@ -982,37 +985,11 @@ img {
   color: var(--telemail-footer-color);
 }
 
-.sub-input:not(:placeholder-shown) {
+.subs-form__input:not(:placeholder-shown) {
   color: var(--primary-white-color);
 }
 
-.send-btn {
-  display: flex;
-  align-items: center;
-  padding: 10px 28px 10px 29px;
-
-  
-  background-color: var(--accent-color);
-  border: 0 solid transparent;
-  border-radius: 4px;
-  color: var(--primary-white-color);
-  font-family: inherit;
-  /* text-align: center; */
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  letter-spacing: 0.06em;
-  
-  transition: background-color var(--transition);
-  }
-  
-  .send-btn:hover,
-  .send-btn:focus {
-    background-color: var(--secondary-btn-color);
-  }
-
-  .send-icon {
+  .susubs-form__icon {
   width: 24px;
   height: 24px;
   fill: var(--primary-white-color);
